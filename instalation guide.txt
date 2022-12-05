@@ -4,7 +4,7 @@ apt install build-essential git vim xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-
 
 2. Instalamos bspwm y sxhkd:
 
-cd /home/s4vitar/Descargas/
+cd ~/Descargas/
 git clone https://github.com/baskerville/bspwm.git
 git clone https://github.com/baskerville/sxhkd.git
 cd bspwm/
@@ -20,7 +20,7 @@ sudo apt install bspwm
 
 mkdir ~/.config/bspwm
 mkdir ~/.config/sxhkd
-cd /home/s4vitar/Descargas/bspwm/
+cd ~/Descargas/bspwm/
 cp examples/bspwmrc ~/.config/bspwm/
 chmod +x ~/.config/bspwm/bspwmrc 
 cp examples/sxhkdrc ~/.config/sxhkd/
@@ -187,7 +187,7 @@ sudo apt install cmake cmake-data pkg-config python3-sphinx libcairo2-dev libxcb
 
 Para instalar la polybar hacemos lo siguiente:
 
-cd /home/s4vitar/Descargas/
+cd ~/Descargas/
 git clone --recursive https://github.com/polybar/polybar
 cd polybar/
 mkdir build
@@ -228,7 +228,7 @@ sudo apt install rofi
 
 14. Cargamos en el archivo bspwmrc justo al final la siguiente línea:
 
-feh --bg-fill /home/s4vitar/Desktop/S4vitar/Images/fondo.jpg
+feh --bg-fill [ruta para la imagen]
 
 15. Para configurar nuestra Polybar, clonaremos primeramente en 'Descargas' el siguiente repositorio:
 
@@ -343,9 +343,9 @@ Comentamos la siguiente línea:
 
 Para evitar un pequeño problema de permisos a la hora de desde el usuario root migrar con 'su' al usuario con bajos privilegios, ejecutamos los siguientes comandos:
 
-chown s4vitar:s4vitar /root
-chown s4vitar:s4vitar /root/.cache -R
-chown s4vitar:s4vitar /root/.local -R
+chown user:user /root
+chown user:user /root/.cache -R
+chown user:user /root/.local -R
 
 25. Instalamos bat, lsd, fzf y ranger
 
