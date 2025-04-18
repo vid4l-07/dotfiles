@@ -18,6 +18,12 @@ Entorno bspwm con tres temas diferentes
   <img src="https://raw.githubusercontent.com/vid4l-07/dotfiles/main/github/purple/captura.jpg" alt="cap">
 </p>
 
+# Nvim
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/vid4l-07/dotfiles/main/github/grey/capturavim.jpg" alt="cap">
+</p>
+
 ## Cambiar tema
 
 ```bash
