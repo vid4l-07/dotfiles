@@ -1,4 +1,14 @@
-Entorno bspwm
+Entorno bspwm con tres temas diferentes
+
+#Grey
+
+<p align="center">
+  <img src="https://github.com/vid4l-07/dotfiles/tree/main/github/grey/captura.jpg" alt="cap">
+</p>
+
+#Blue
+
+#Purple
 
 ## Cambiar tema
 
