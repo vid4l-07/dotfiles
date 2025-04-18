@@ -3,19 +3,19 @@ Entorno bspwm con tres temas diferentes
 # Grey
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/vid4l-07/dotfiles/main/github/grey/captura.jpg" alt="cap">
+  <img src="https://raw.githubusercontent.com/vid4l-07/dotfiles/main/github/grey/gif.gif" alt="cap">
 </p>
 
 # Blue
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/vid4l-07/dotfiles/main/github/blue/captura.jpg" alt="cap">
+  <img src="https://raw.githubusercontent.com/vid4l-07/dotfiles/main/github/blue/gif.gif" alt="cap">
 </p>
 
 # Purple
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/vid4l-07/dotfiles/main/github/purple/captura.jpg" alt="cap">
+  <img src="https://raw.githubusercontent.com/vid4l-07/dotfiles/main/github/purple/gif.gif" alt="cap">
 </p>
 
 # Nvim
