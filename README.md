@@ -1,14 +1,22 @@
 Entorno bspwm con tres temas diferentes
 
-#Grey
+# Grey
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/vid4l-07/dotfiles/tree/main/github/grey/captura.jpg" alt="cap">
+  <img src="https://raw.githubusercontent.com/vid4l-07/dotfiles/main/github/grey/captura.jpg" alt="cap">
 </p>
 
-#Blue
+# Blue
 
-#Purple
+<p align="center">
+  <img src="https://raw.githubusercontent.com/vid4l-07/dotfiles/main/github/blue/captura.jpg" alt="cap">
+</p>
+
+# Purple
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/vid4l-07/dotfiles/main/github/purple/captura.jpg" alt="cap">
+</p>
 
 ## Cambiar tema
 
