@@ -64,10 +64,10 @@ echo "\ninstalando extras y las nerd fonts\n"
 sleep 1
 sudo apt install -y rofi feh kitty neovim bat
 
-cp ./dotfiles-bspwm/fonts/* /usr/local/share/fonts/
-unzip /usr/local/share/fonts/*
-rm /usr/local/share/fonts/*.zip
-cp /usr/local/share/fonts/* /usr/share/fonts/truetype/
+sudo cp ./dotfiles-bspwm/fonts/* /usr/local/share/fonts/
+sudo unzip /usr/local/share/fonts/*
+sudo rm /usr/local/share/fonts/*.zip
+sudo cp /usr/local/share/fonts/* /usr/share/fonts/truetype/
 fc-cache -v
 
 cp -r ./dotfiles-bspwm/polybar ~/.config
