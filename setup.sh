@@ -61,8 +61,17 @@ sleep 1
 sudo apt install -y rofi feh kitty neovim bat
 
 sudo cp ./dotfiles-bspwm/fonts/* /usr/local/share/fonts/
-sudo unzip /usr/local/share/fonts/* /usr/local/share/fonts/
-sudo rm /usr/local/share/fonts/*.zip
+cd /usr/local/share/fonts
+sudo unzip CascadiaCode.zip
+rm README.md LICENSE*
+sudo unzip FiraCode.zip
+rm README.md LICENSE*
+sudo unzip Hack.zip
+rm README.md LICENSE*
+sudo unzip Mononoki.zip
+rm README.md LICENSE*
+sudo rm *.zip
+cd $ruta
 sudo cp /usr/local/share/fonts/* /usr/share/fonts/truetype/
 fc-cache -v
 
