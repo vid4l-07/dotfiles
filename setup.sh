@@ -90,3 +90,5 @@ rm -r ~/.vim ~/.vimrc
 cp -r ./dotfiles-bspwm/.vim ~
 cp ./dotfiles-bspwm/.vimrc ~
 cp -r ./dotfiles-bspwm/nvim ~/.config
+
+bash ~/.config/bin/changetheme.sh -g
