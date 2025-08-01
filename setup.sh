@@ -58,8 +58,6 @@ echo "\ninstalando extras y las nerd fonts\n"
 sleep 1
 sudo apt install -y rofi feh kitty neovim bat
 
-#faltan: JetBrainsMono Nerd Font, SauceCodePro Nerd Font Mono, Material Icons
-
 mkdir -p ~/.local/share/fonts
 cp ./dotfiles-bspwm/fonts/*.zip ~/.local/share/fonts
 cd ~/.local/share/fonts
