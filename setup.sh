@@ -3,7 +3,7 @@
 ruta=$(pwd)
 
 sudo apt update
-sudo apt install -y build-essential ninja-build meson cmake git vim libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev ninja-build nodejs xcb-proto libcairo2-dev libfontconfig1-dev pkgconf pwdsphinx python3-sphinx python3-xcbgen
+sudo apt install -y bspwm build-essential ninja-build meson cmake git vim libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev ninja-build nodejs xcb-proto libcairo2-dev libfontconfig1-dev pkgconf pwdsphinx python3-sphinx python3-xcbgen playerctl
 sudo apt install -y libpcre3-dev libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev libxcb-glx0-dev
 
 mkdir content
@@ -24,8 +24,6 @@ sudo make install
 cd ../sxhkd/
 make
 sudo make install
-
-sudo apt install -y bspwm
 
 cd $ruta
 
@@ -60,33 +58,36 @@ echo "\ninstalando extras y las nerd fonts\n"
 sleep 1
 sudo apt install -y rofi feh kitty neovim bat
 
-sudo cp ./dotfiles-bspwm/fonts/* /usr/local/share/fonts/
-cd /usr/local/share/fonts
-sudo unzip CascadiaCode.zip
-sudo rm README.md LICENSE*
-sudo unzip FiraCode.zip
-sudo rm README.md LICENSE*
-sudo unzip Hack.zip
-sudo rm README.md LICENSE*
-sudo unzip Mononoki.zip
-sudo rm README.md LICENSE*
-sudo rm *.zip
+#faltan: JetBrainsMono Nerd Font, SauceCodePro Nerd Font Mono, Material Icons
+
+mkdir -p ~/.local/share/fonts
+cp ./dotfiles-bspwm/fonts/*.zip ~/.local/share/fonts
+cd ~/.local/share/fonts
+unzip -o '*.zip'
+rm *.zip README.md LICENSE*
+fc-cache -fv
 cd $ruta
-sudo cp /usr/local/share/fonts/* /usr/share/fonts/truetype/
-fc-cache -v
+
+sudo mkdir -p /usr/share/fonts/nerd
+sudo cp ./dotfiles-bspwm/fonts/*.zip /usr/share/fonts/nerd/
+cd /usr/share/fonts/nerd/
+sudo unzip -o '*.zip'
+sudo rm *.zip README.md LICENSE*
+sudo fc-cache -fv
+cd $ruta
 
 cp -r ./dotfiles-bspwm/polybar ~/.config
 cp -r ./dotfiles-bspwm/picom ~/.config
 cp -r ./dotfiles-bspwm/rofi ~/.config
 
-rm -r ~/.config/kitty
+rm -r ~/.config/kitty 2> /dev/null
 cp -r ./dotfiles-bspwm/kitty ~/.config
-rm ~/.zshrc
+rm ~/.zshrc 2> /dev/null
 cp ./dotfiles-bspwm/.zshrc ~
 cp ./dotfiles-bspwm/.p10k.zsh ~
 cp -r ./dotfiles-bspwm/powerlevel10k ~/.config
 
-rm -r ~/.vim ~/.vimrc
+rm -r ~/.vim ~/.vimrc 2> /dev/null
 cp -r ./dotfiles-bspwm/.vim ~
 cp ./dotfiles-bspwm/.vimrc ~
 cp -r ./dotfiles-bspwm/nvim ~/.config
