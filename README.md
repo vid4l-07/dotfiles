@@ -1,5 +1,10 @@
 Entorno bspwm con tres temas diferentes
 
+# Install
+```bash
+bash setup.sh
+```
+
 # Grey
 
 <p align="center">
