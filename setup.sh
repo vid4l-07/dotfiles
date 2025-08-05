@@ -3,7 +3,7 @@
 ruta=$(pwd)
 
 sudo apt update
-sudo apt install -y bspwm build-essential ninja-build meson cmake git vim libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev ninja-build nodejs xcb-proto libcairo2-dev libfontconfig1-dev pkgconf pwdsphinx python3-sphinx python3-xcbgen playerctl pulseaudio
+sudo apt install -y bspwm build-essential ninja-build meson cmake git vim libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev ninja-build nodejs xcb-proto libcairo2-dev libfontconfig1-dev pkgconf pwdsphinx python3-sphinx python3-xcbgen playerctl pulseaudio i3lock-fancy
 sudo apt install -y libpcre3-dev libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev libxcb-glx0-dev libcurl4-openssl-dev libiw-dev libmpdclient-dev libnl-genl-3-dev libpulse-dev libxcb-xkb-dev
 
 mkdir content
@@ -91,5 +91,8 @@ rm -r ~/.vim ~/.vimrc 2> /dev/null
 cp -r ./dotfiles-bspwm/.vim ~
 cp ./dotfiles-bspwm/.vimrc ~
 cp -r ./dotfiles-bspwm/nvim ~/.config
+cp -r ./dotfiles-bspwm/coc ~/.config
 
-bash ~/.config/bin/changetheme.sh -g
+ln -s ~/.config/bin/changetheme.sh ~/.local/bin/changetheme
+
+changetheme.sh -g
