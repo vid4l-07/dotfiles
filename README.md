@@ -1,8 +1,8 @@
 Entorno bspwm con tres temas diferentes
 
 # Install
-Descarga los dotfiles de https://drive.google.com/file/d/1RS_PfwWqNZ_xcQxaTYxrL5dnuVELUr6J/view?usp=drive_link y descomprimelos en la misma carpeta que el script setup.sh
 ```bash
+wget https://drive.google.com/file/d/1mbKljla2gSrOo1x0Igmfroz5iJIhSceW/view?usp=drive_link
 bash setup.sh
 ```
 
