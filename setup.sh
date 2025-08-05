@@ -3,8 +3,8 @@
 ruta=$(pwd)
 
 sudo apt update
-sudo apt install -y bspwm build-essential ninja-build meson cmake git vim libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev ninja-build nodejs xcb-proto libcairo2-dev libfontconfig1-dev pkgconf pwdsphinx python3-sphinx python3-xcbgen playerctl
-sudo apt install -y libpcre3-dev libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev libxcb-glx0-dev
+sudo apt install -y bspwm build-essential ninja-build meson cmake git vim libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev ninja-build nodejs xcb-proto libcairo2-dev libfontconfig1-dev pkgconf pwdsphinx python3-sphinx python3-xcbgen playerctl pulseaudio
+sudo apt install -y libpcre3-dev libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev libxcb-glx0-dev libcurl4-openssl-dev libiw-dev libmpdclient-dev libnl-genl-3-dev libpulse-dev libxcb-xkb-dev
 
 mkdir content
 
@@ -43,6 +43,8 @@ make -j$(nproc)
 sudo make install
 cd $ruta
 
+cp ~/.config/bin/spotify_status.py ~/.local/bin
+
 #picom
 echo "\n instalando picom \n"
 cd ./content
@@ -66,7 +68,7 @@ rm *.zip README.md LICENSE*
 fc-cache -fv
 cd $ruta
 
-sudo mkdir -p /usr/share/fonts/nerd
+sudo mkdir /usr/share/fonts/nerd
 sudo cp ./dotfiles-bspwm/fonts/*.zip /usr/share/fonts/nerd/
 cd /usr/share/fonts/nerd/
 sudo unzip -o '*.zip'
