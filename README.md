@@ -2,7 +2,10 @@ Entorno bspwm con tres temas diferentes
 
 # Install
 ```bash
+git clone https://github.com/vid4l-07/dotfiles.git
+cd dotfiles
 wget https://drive.google.com/file/d/1mbKljla2gSrOo1x0Igmfroz5iJIhSceW/view?usp=drive_link
+unzip dotfiles.zip
 bash setup.sh
 ```
 
