@@ -1,0 +1,59 @@
+#! /bin/bash
+
+wallpaper=$(/bin/cat ${HOME}/.config/bin/wallpaper)
+
+setxkbmap us #pone el teclado en ingles
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+bspc config border_color         #fff
+#bspc config window_gap          7
+bspc config window_gap          0
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+
+bspc config focus_follows_pointer true
+picom --experimental-backends &
+bspc config border_width 0
+xsetroot -cursor_name left_ptr &
+
+xset -b #desactiva el pitido
+
+#mouse
+xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Natural Scrolling Enabled' 1
+xinput --set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Accel Speed' 0.30
+xinput set-prop 'Newmen USB Gaming Mouse MX510F' 'libinput Accel Speed' -0.5
+
+bspc monitor -d 1 2 3 4 5
+
+
+#monitor
+if [[ $(xrandr -q | grep 'DP-2 connected') ]]; then
+    xrandr --output DP-2 --primary --mode 1360x768 --rotate normal --output eDP-1 --mode 1920x1080 --rotate normal --right-of DP-2
+
+	bspc monitor DP-2 -d 1 2 3 4 5
+	bspc monitor eDP-1 -d 6 7 8 9 0
+else
+	xrandr --output eDP-1 --scale 0.8x0.8
+
+fi
+
+
+feh --bg-fill $wallpaper
+
+export MONITOR=$(xrandr | grep primary | awk '{print $1}')
+
+
+~/.config/polybar/launch.sh
+
+
+
+

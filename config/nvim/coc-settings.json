@@ -1,0 +1,20 @@
+{
+  "suggest.noselect": true,
+  "suggest.autoTrigger": "always",
+  "suggest.minTriggerInputLength": 0,
+  "coc.source.buffer.enable": true,
+  "coc.source.buffer.firstMatch": true,
+  "coc.preferences.snippetSupport": true,
+  "suggest.enablePreview": true,
+
+  "languageserver": {
+    "go": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "trace.server": "verbose",
+      "filetypes": ["go"]
+    }
+  }
+}
+
+

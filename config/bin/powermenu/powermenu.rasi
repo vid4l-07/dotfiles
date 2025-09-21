@@ -1,0 +1,51 @@
+configuration {
+    show-icons: false;
+    disable-history: true;
+    sidebar-mode: false;
+}
+
+* {
+    font: "Hack 16";
+    text-color: #ffffff;
+    background-color: #1E1E2E;
+    border-radius: 12;
+    padding: 10;
+}
+
+window {
+    width: 40%;
+    transparency: "real";
+    location: center;
+    anchor: center;
+    border: 0;
+}
+
+mainbox {
+    orientation: vertical;
+    children: [ "listview" ];
+    spacing: 5;
+}
+
+listview {
+    columns: 4;
+    lines: 1;
+    spacing: 10;
+    cycle: false;
+    dynamic: false;
+    layout: vertical;
+    fixed-height: true;
+}
+
+element {
+    padding: 15;
+    border: 2px;
+    border-radius: 8;
+    background-color: #4c566a;
+    text-color: #ffffff;
+    cursor: pointer;
+}
+
+element selected {
+    background-color: #88c0d0;
+	text-color: #2e3440;
+}

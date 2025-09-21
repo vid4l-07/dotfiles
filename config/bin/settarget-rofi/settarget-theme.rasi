@@ -1,0 +1,50 @@
+configuration {
+    show-icons: false;
+    disable-history: true;
+    sidebar-mode: false;
+}
+
+* {
+    font: "Mononoki NF 12";
+    text-color: #ffffff;
+    background-color: #1E1E2E;
+    border-radius: 12;
+    padding: 1.5%;
+}
+
+window {
+    location: center;
+    width: 40%;
+    height: 11%;
+    background-color: @background-color;
+}
+
+mainbox {
+    orientation: vertical;
+    spacing: 1%;
+	padding: 2%;
+}
+
+prompt {
+    text-color: #88c0d0;
+    padding-top: 2%;
+}
+
+entry {
+    padding: 1%;
+    text-color: #88c0d0;
+    background-color: #302D41;
+    --border-color: #4c566a;
+    border-color: #302d41;
+    border-radius: 8;
+    border: 2;
+    blink: true;
+}
+
+listview {
+    lines: 0;
+    spacing: 0;
+    fixed-height: false;
+    dynamic: false;
+}
+

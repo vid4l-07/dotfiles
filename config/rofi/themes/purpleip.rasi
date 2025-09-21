@@ -1,0 +1,92 @@
+config {
+
+    font: "Fira Code NF 13";
+	width: 10px;
+	columns: 2;
+
+    show-icons:     true;
+}
+
+* {
+	nord0: #2e3440;
+	nord1: #3b4252;
+	nord2: #434c5e;
+	nord3: #4c566a;
+
+	nord4: #d8dee9;
+	nord5: #e5e9f0;
+	nord6: #eceff4;
+
+	nord7: #8fbcbb;
+	nord8: #88c0d0;
+	nord9: #81a1c1;
+	nord11: #bf616a;
+
+	nord12: #d08770;
+	nord13: #ebcb8b;
+	nord14: #a3be8c;
+	nord15: #b48ead;
+
+	bk: rgb(45, 12, 54, 0.7);
+	nord10: #F564F0;
+	blue1: #74EDE7;
+
+    foreground:  @nord9;
+    backlight:   #ccffeedd;
+    background-color:  transparent;
+
+    highlight:     underline bold #eceff4;
+
+    transparent: rgba(46,52,64,0);
+}
+
+window {
+    location: center;
+    anchor:   center;
+	width: 400px;
+	y-offset: -29%;
+    padding: 10px;
+    border:  0px;
+    border-radius: 6px;
+
+    background-color: @transparent;
+    spacing: 0;
+    children:  [mainbox];
+    orientation: horizontal;
+}
+
+mainbox {
+    spacing: 0;
+    children: [ inputbar, listview ];
+}
+
+message {
+    color: @nord0;
+    padding: 5;
+    border-color: @foreground;
+    border:  0px 2px 2px 2px;
+    background-color: @nord7;
+}
+
+inputbar {
+    color: @blue1;
+    padding: 10px;
+    background-color: @bk;
+
+    border: 1px;
+    border-radius:  6px;
+    border-color: @nord10;
+}
+
+entry, prompt, case-indicator {
+    text-font: inherit;
+    text-color:inherit;
+}
+
+prompt {
+    margin: 0px 12px 0em 0em ;
+}
+
+listview {
+}
+
