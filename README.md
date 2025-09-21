@@ -4,8 +4,6 @@ Entorno bspwm con tres temas diferentes
 ```bash
 git clone https://github.com/vid4l-07/dotfiles.git
 cd dotfiles
-wget https://drive.google.com/file/d/1E8nf5R0Cd4G51q7BFgL6SAqTj4L0Z5sd/view?usp=drive_link
-unzip dotfiles.zip
 bash setup.sh
 ```
 
