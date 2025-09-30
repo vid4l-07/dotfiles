@@ -143,7 +143,7 @@ super + l
     i3lock-fancy
 #Brighness control
 XF86MonBrightness{Up,Down}
-    brightnessctl set 10%{+,-}
+			brightnessctl set 5%{+,-}
 
 # Volume control
 XF86AudioRaiseVolume

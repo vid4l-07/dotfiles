@@ -230,6 +230,11 @@ source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+#mount
+function mnt-prog(){
+	sudo mount -t vfat -o uid=1000,gid=1000,umask=022 /dev/sda4 $1
+}
+
 #settarget
 function settarget(){
 	ip_address=$1

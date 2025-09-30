@@ -1,6 +1,6 @@
-
-
 source $HOME/.config/nvim/plug.vim
+
+set clipboard=unnamedplus
 
 set shell=/bin/zsh
 syntax on
@@ -54,7 +54,6 @@ autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTa
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR> 
-nnoremap <C-z> :undo<CR> 
 nnoremap <C-c> :q!<CR>
 
 "coc
