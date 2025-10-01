@@ -3,9 +3,7 @@
   "suggest.autoTrigger": "always",
   "suggest.minTriggerInputLength": 0,
   "coc.source.buffer.enable": true,
-  "coc.source.buffer.firstMatch": true,
-  "coc.preferences.snippetSupport": true,
-  "suggest.enablePreview": true,
+  "inlayHint.enable": false,
 
   "languageserver": {
     "go": {

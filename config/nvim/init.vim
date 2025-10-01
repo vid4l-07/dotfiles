@@ -41,7 +41,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#whitespace#enabled = 0
-au User AirlineAfterInit  :let g:airline_section_z = airline#section#create(['%3p%%', '|', 'linenr', '|', 'col:%3v'])
+"au User AirlineAfterInit  :let g:airline_section_z = airline#section#create(['%3p%%', '|', 'linenr', '|', 'col:%3v'])
 map <C-right> :bnext<CR>
 map <C-left> :bprevious<CR>
 
@@ -88,7 +88,9 @@ let g:indentLine_color_gui = '#fff'
 let g:indentLine_char = '⏽ '
 let g:molokai_original = 1
 "colorscheme nord
-colorscheme kanagawa
+"colorscheme kanagawa
+colorscheme atelier_cave
+"colorscheme onedark
 set termguicolors
 
 "let g:airline_theme = 'nord'
@@ -107,5 +109,5 @@ hi LineNr guibg=bg
 set foldcolumn=2
 hi foldcolumn guibg=bg
 hi VertSplit guibg=#302d38 guifg=#302d38
-autocmd vimenter * hi Normal guibg=255 ctermbg=NONE "transparent bg
+"autocmd vimenter * hi Normal guibg=255 ctermbg=NONE "transparent bg
 
