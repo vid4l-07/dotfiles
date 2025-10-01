@@ -25,6 +25,7 @@ call plug#begin()
   Plug 'nordtheme/vim'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+  Plug 'rebelot/kanagawa.nvim'
   "Syntax
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'jiangmiao/auto-pairs'
@@ -39,6 +40,7 @@ call plug#begin()
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#whitespace#enabled = 0
 au User AirlineAfterInit  :let g:airline_section_z = airline#section#create(['%3p%%', '|', 'linenr', '|', 'col:%3v'])
 map <C-right> :bnext<CR>
 map <C-left> :bprevious<CR>
@@ -85,11 +87,12 @@ nnoremap ,<space> :CHADopen<CR>
 let g:indentLine_color_gui = '#fff'
 let g:indentLine_char = '⏽ '
 let g:molokai_original = 1
-"colorscheme OceanicNext
-colorscheme nord
+"colorscheme nord
+colorscheme kanagawa
 set termguicolors
 
-let g:airline_theme = 'nord'
+"let g:airline_theme = 'nord'
+let g:airline_theme = 'base16_atelier_cave'
 
 set noshowmode
 
