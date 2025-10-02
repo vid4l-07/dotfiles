@@ -29,7 +29,7 @@ xset -b #desactiva el pitido
 
 #mouse
 xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Natural Scrolling Enabled' 1
-xinput --set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Accel Speed' 0.30
+xinput --set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Accel Speed' 0.20
 xinput set-prop 'Newmen USB Gaming Mouse MX510F' 'libinput Accel Speed' -0.5
 
 bspc monitor -d 1 2 3 4 5

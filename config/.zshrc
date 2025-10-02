@@ -10,6 +10,8 @@ fi
 
 export TERM=xterm-256color
 
+bindkey -v	# movimiento como en vim
+
 setopt autocd              # change directory just by typing its name
 #setopt correct            # auto correct mistakes
 setopt interactivecomments # allow comments in interactive mode
@@ -25,18 +27,22 @@ WORDCHARS=${WORDCHARS//\/} # Don't consider certain characters part of the word
 PROMPT_EOL_MARK=""
 
 # configure key keybindings
-bindkey -e                                        # emacs key bindings
-bindkey ' ' magic-space                           # do history expansion on space
-bindkey '^[[3;5~' kill-word                       # ctrl + Supr
-bindkey '^[[3~' delete-char                       # delete
-bindkey '^[[1;5C' forward-word                    # ctrl + ->
-bindkey '^[[1;5D' backward-word                   # ctrl + <-
-bindkey '^[[5~' beginning-of-buffer-or-history    # page up
-bindkey '^[[6~' end-of-buffer-or-history          # page down
-bindkey '^[[H' beginning-of-line                  # home
-bindkey '^[[F' end-of-line                        # end
-bindkey '^[[Z' undo                               # shift + tab undo last action
-
+# bindkey -e                                        # emacs key bindings
+# bindkey ' ' magic-space                           # do history expansion on space
+# bindkey '^[[3;5~' kill-word                       # ctrl + Supr
+# bindkey '^[[3~' delete-char                       # delete
+# bindkey '^[[1;5C' forward-word                    # ctrl + ->
+# bindkey '^[[1;5D' backward-word                   # ctrl + <-
+# bindkey '^[[5~' beginning-of-buffer-or-history    # page up
+# bindkey '^[[6~' end-of-buffer-or-history          # page down
+# bindkey '^[[H' beginning-of-line                  # home
+# bindkey '^[[F' end-of-line                        # end
+# bindkey '^[[Z' undo                               # shift + tab undo last action
+#
+# # Defined shortcut keys: [Esc] [Esc]
+# bindkey "\e\e" sudo-command-line
+# bindkey -M vicmd '\e\e' sudo-command-line
+#
 # enable completion features
 autoload -Uz compinit
 compinit -d ~/.cache/zcompdump
@@ -218,7 +224,8 @@ alias v='/usr/bin/nvim'
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
     . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     # change suggestion color
-    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+    # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
 fi
 
 # enable command-not-found if installed
@@ -296,9 +303,6 @@ sudo-command-line() {
     fi
 }
 zle -N sudo-command-line
-# Defined shortcut keys: [Esc] [Esc]
-bindkey "\e\e" sudo-command-line
-bindkey -M vicmd '\e\e' sudo-command-line
 export PATH=$PATH:${HOME}/.spicetify
 export PATH=$PATH:/root/.spicetify
 export PATH=$PATH:${HOME}/.local/bin
