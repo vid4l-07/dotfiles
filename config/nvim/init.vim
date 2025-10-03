@@ -92,7 +92,6 @@ nnoremap <silent><leader>p :bprevious<CR>
 "IA
 imap <silent><script><expr> <Tab> copilot#Accept("\<Tab>") "desactivar tab para copilot
 let g:copilot_no_tab_map = v:true
-imap <silent><script><expr> <C-i> copilot#Accept("\<CR>") "aceptar sugerencia con ctrl+i
 
 "funcion para activar y desactivar copilot
 let g:copilot_enabled = 1 " empieza habilitado
@@ -108,6 +107,8 @@ function! CopilotToggle()
     echo "Copilot activado"
   endif
 endfunction
+inoremap <silent><script><expr> <C-i> pumvisible() ? "\<C-e>\<C-i>" : copilot#Accept("\<CR>") "aceptar sugerencia con ctrl+i si no hay menu visible, y si lo hay, cerrar el menu y poner ctrl+i normal
+"imap <silent><script><expr> <C-i> copilot#Accept("\<CR>") "aceptar sugerencia con ctrl+i
 
 nnoremap <leader>i :call CopilotToggle()<CR>
 
