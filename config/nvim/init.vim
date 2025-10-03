@@ -27,11 +27,13 @@ call plug#begin()
   Plug 'vim-airline/vim-airline-themes'
   Plug 'rebelot/kanagawa.nvim'
   "Syntax
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'neoclide/coc.nvim', {'branch': 'release'} "menu autocompletado | :CocInstall coc-json coc-tsserver coc-pyright coc-html coc-css coc-sh coc-yaml coc-go coc-rust-analyzer coc-java | aqui se instala soporte para lenguajes, buscar mas o instalar lo necesario
   Plug 'jiangmiao/auto-pairs'
   Plug 'alvan/vim-closetag'
   "colors
   Plug 'ap/vim-css-color'
+  "IA
+  Plug 'github/copilot.vim'  ":Copilot setup
   call plug#end()
 
 
@@ -79,14 +81,35 @@ vnoremap <A-k> :m '<-2<CR>gv=gv		" Mover bloque seleccionado hacia arriba
 "nnoremap j jzz		" mantener cusror centrado en la pantalla
 "nnoremap k kzz
 
+"NerdTree
+nnoremap <silent> <leader>t :NERDTreeToggle<CR>
+nnoremap <silent> <C-t> :NERDTreeFocus<CR>
+
 "change file
 nnoremap <silent><leader>n :bnext<CR>
 nnoremap <silent><leader>p :bprevious<CR>
 
-"nav menu
+"IA
+imap <silent><script><expr> <Tab> copilot#Accept("\<Tab>") "desactivar tab para copilot
+let g:copilot_no_tab_map = v:true
+imap <silent><script><expr> <C-i> copilot#Accept("\<CR>") "aceptar sugerencia con ctrl+i
 
-nnoremap <silent> <leader>t :NERDTreeToggle<CR>
-nnoremap <silent> <C-t> :NERDTreeFocus<CR>
+"funcion para activar y desactivar copilot
+let g:copilot_enabled = 1 " empieza habilitado
+
+function! CopilotToggle()
+  if g:copilot_enabled
+    Copilot disable
+    let g:copilot_enabled = 0
+    echo "Copilot desactivado"
+  else
+    Copilot enable
+    let g:copilot_enabled = 1
+    echo "Copilot activado"
+  endif
+endfunction
+
+nnoremap <leader>i :call CopilotToggle()<CR>
 
 "coc
 
