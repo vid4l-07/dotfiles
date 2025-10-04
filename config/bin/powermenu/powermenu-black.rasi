@@ -1,0 +1,80 @@
+configuration {
+    show-icons: false;
+    disable-history: true;
+    sidebar-mode: false;
+}
+
+* {
+	nord0: #19171c;
+	nord1: #26232a;
+	nord2: #585260;
+	nord3: #655f6d;
+
+	nord4: #7e7887;
+	nord5: #8b8792;
+	nord6: #e2dfe7;
+
+	nord7: #8fbcbb;
+	nord8: #88c0d0;
+	nord9: #81a1c1;
+	nord10: #5e81ac;
+	nord11: #bf616a;
+
+	nord12: #d08770;
+	nord13: #ebcb8b;
+	nord14: #a3be8c;
+	nord15: #b48ead;
+
+    foreground:  @nord5;
+    backlight:   #000000;
+    background-color:  transparent;
+    
+    highlight:     underline bold #eceff4;
+
+    transparent: rgba(46,52,64,0);
+    
+	font: "Hack 16";
+    text-color: @nord5;
+    background-color: @nord0;
+    border-radius: 12;
+    padding: 10;
+}
+
+window {
+    width: 40%;
+    transparency: "real";
+    location: center;
+    anchor: center;
+	border: 1px;
+	border-color: @nord1;
+}
+
+mainbox {
+    orientation: vertical;
+    children: [ "listview" ];
+    spacing: 5;
+}
+
+listview {
+    columns: 4;
+    lines: 1;
+    spacing: 10;
+    cycle: false;
+    dynamic: false;
+    layout: vertical;
+    fixed-height: true;
+}
+
+element {
+    padding: 15;
+    border: 1px;
+    border-radius: 12;
+    background-color: @nord1;
+    text-color: @nord5;
+    cursor: pointer;
+}
+
+element selected {
+    background-color: @nord2;
+	text-color: @nord5;
+}

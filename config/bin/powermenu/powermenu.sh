@@ -5,10 +5,13 @@ reboot="󰑓"
 logout=""
 lock=""
 
+theme=$(/bin/cat $HOME/.config/bin/powermenu/theme.txt)
+
+echo $theme
 
 # Mostrar el menú con rofi
 chosen=$(echo -e "$poweroff\n$reboot\n$logout\n$lock" | rofi -dmenu -no-custom -format "s" \
-    -theme ${HOME}/.config/bin/powermenu/powermenu.rasi -hide-scrollbar)
+    -theme $theme -hide-scrollbar)
 # Ejecutar comandos según la elección
 case "$chosen" in
     $poweroff)

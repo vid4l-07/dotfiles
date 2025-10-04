@@ -16,6 +16,10 @@ blackpoly=${HOME}/.config/polybar/black
 purpleapp=${HOME}/.config/rofi/themes/purple.rasi
 greyapp=${HOME}/.config/rofi/themes/nord.rasi
 blueapp=${HOME}/.config/rofi/themes/nord.rasi
+blackapp=${HOME}/.config/rofi/themes/black.rasi
+
+blueoff=${HOME}/.config/bin/powermenu/powermenu-nord.rasi
+blackoff=${HOME}/.config/bin/powermenu/powermenu-black.rasi
 
 #rofi ip
 purpleip=${HOME}/.config/rofi/themes/purpleip.rasi
@@ -58,6 +62,7 @@ elif [[ $1 = -b ]];then
 	echo $bluewp > ${HOME}/.config/bin/wallpaper
 	echo $bluepoly > ${HOME}/.config/bin/polybar
 	echo '@theme '\"$blueapp\" > ${HOME}/.config/rofi/config.rasi
+	echo $blueoff > ${HOME}/.config/bin/powermenu/theme.txt
 	echo $blueip > ${HOME}/.config/rofi/themeip
 
 elif [[ $1 = -g ]];then
@@ -65,12 +70,15 @@ elif [[ $1 = -g ]];then
 	echo $greypoly > ${HOME}/.config/bin/polybar
 	echo '@theme '\"$greyapp\" > ${HOME}/.config/rofi/config.rasi
 	echo $greyip > ${HOME}/.config/rofi/themeip
+	echo $blueoff > ${HOME}/.config/bin/powermenu/theme.txt
 	kitty $greykitty
 	echo -e $bluevim > ${HOME}/.config/nvim/theme.vim
 
 elif [[ $1 = -d ]];then
 	echo $blackwp > ${HOME}/.config/bin/wallpaper
 	echo $blackpoly > ${HOME}/.config/bin/polybar
+	echo '@theme '\"$blackapp\" > ${HOME}/.config/rofi/config.rasi
+	echo $blackoff > ${HOME}/.config/bin/powermenu/theme.txt
 	kitty $blackitty
 	echo -e $blackvim > ${HOME}/.config/nvim/theme.vim
 fi
