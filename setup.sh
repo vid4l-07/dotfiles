@@ -95,4 +95,4 @@ cp -r ./config/coc ~/.config
 
 ln -s ~/.config/bin/changetheme.sh ~/.local/bin/changetheme
 
-changetheme.sh -g
+bash ~/.config/bin/changetheme.sh -d

@@ -1,6 +1,3 @@
-" Base16 Vim original template by Chris Kempson (https://github.com/chriskempson/base16-vim)
-" Scheme: Atelier_Cave by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/cave)
-
 " This enables the coresponding base16-shell script to run so that
 " :colorscheme works in terminals supported by base16-shell scripts
 " User must set this variable in .vimrc

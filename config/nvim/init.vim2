@@ -126,11 +126,36 @@ inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<CR>"
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
+" Ejecutar código
+function! RunFile()
+  w
+  let file = expand("%:p")
+  let ext = expand("%:e")
+  if ext ==# 'py'
+    let cmd = 'python3 ' . file
+  elseif ext ==# 'c'
+    let cmd = 'gcc ' . file . ' -o /tmp/a.out && /tmp/a.out'
+  elseif ext ==# 'cpp'
+    let cmd = 'g++ ' . file . ' -o /tmp/a.out && /tmp/a.out'
+  elseif ext ==# 'js'
+    let cmd = 'node ' . file
+  elseif ext ==# 'sh'
+    let cmd = 'bash ' . file
+  elseif ext ==# 'lua'
+    let cmd = 'lua ' . file
+  else
+    echo "Tipo de archivo no soportado: " . ext
+    return
+  endif
+  execute 'botright split | term ' . cmd
+endfunction
 
-		"theme
+command! RunFile call RunFile()
+nnoremap <leader>r :RunFile<CR>
+
+"theme
 
 hi Normal guibg=NONE ctermbg=NONE
-"source $HOME/.vimrc
 
 source $HOME/.config/nvim/theme.vim  "archivo con el tema / se cambia desde changetheme
 

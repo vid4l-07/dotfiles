@@ -1,11 +1,9 @@
-" Base16 Atelier Cave vim-airline-theme (https://github.com/dawikur/base16-vim-airline-themes)
-" For vim-airline (https://github.com/vim-airline/vim-airline)
-" By Bram de Haan (http://atelierbramdehaan.nl)
+" Airline theme
 
-"rm
-"$HOME/.local/share/nvim/plugged/vim-airline-themes/autoload/airline/themes/base16_atelier_cave.vim
-"ln -s $HOME/.config/nvim/colors/atelier_cave_airline.vim $HOME/.local/share/nvim/plugged/vim-airline-themes/autoload/airline/themes/base16_atelier_cave.vim
-
+"Plug
+"ln -sf $HOME/.config/nvim/colors/base16_atelier_cave.vim $HOME/.local/share/nvim/plugged/vim-airline-themes/autoload/airline/themes/base16_atelier_cave.vim
+"Lazy
+"ln -sf $HOME/.config/nvim/colors/base16_atelier_cave.vim $HOME/.local/share/nvim/lazy/vim-airline-themes/autoload/airline/themes/base16_atelier_cave.vim
 
 let s:scheme_slug = substitute("atelier-cave", "-", "_", "g")
 
@@ -29,24 +27,6 @@ let s:gui0B = "#5f6a9c"
 let s:gui0E = "#685286"
 let s:gui0F = "#8a618a"
 
-" GUI color definitions
-"let s:gui00 = '#19171c'
-"let s:gui01 = '#26232a'
-"let s:gui02 = '#585260'
-"let s:gui03 = '#655f6d'
-"let s:gui04 = '#7e7887'
-"let s:gui05 = '#8b8792'
-"let s:gui06 = '#e2dfe7'
-"let s:gui07 = '#efecf4'
-"let s:gui08 = '#be4678'
-"let s:gui09 = '#aa573c'
-"let s:gui0A = '#a06e3b'
-"let s:gui0B = '#2a9292'
-"let s:gui0C = '#398bc6'
-"let s:gui0D = '#576ddb'
-"let s:gui0E = '#955ae7'
-"let s:gui0F = '#bf40bf'
-"
 " Terminal color definitions
 let s:cterm00        = "00"
 let s:cterm03        = "08"

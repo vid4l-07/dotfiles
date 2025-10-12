@@ -124,7 +124,7 @@ super + ctrl + {Left,Down,Up,Right}
 
 # Custom move/resize
 super + alt + {Left,Down,Up,Right}
-	/home/vidikali/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
+	~/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
 
 # Google-chrome
 super + alt + g
