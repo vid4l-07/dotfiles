@@ -1,6 +1,9 @@
 ------------------------------------------------------------
 -- Opciones generales
 ------------------------------------------------------------
+-- vim.o.winborder = "rounded"
+vim.o.winborder = "solid"
+vim.o.winblend = 0 
 vim.opt.clipboard = "unnamedplus"
 vim.opt.shell = "/bin/zsh"
 vim.cmd("syntax on")
@@ -50,11 +53,30 @@ vim.g.molokai_original = 1
 vim.cmd("source $HOME/.config/nvim/theme.vim")
 
 -- Colores coc.nvim
-vim.cmd([[
-	hi! link CocMenuSel Search
-	hi! link CocFloating Normal
-	"hi! link CocSearch Normal
-	hi! link CocSearch NonText
+vim.cmd([[ 
+	hi! link @variable Text
+
+    hi! link BlinkCmpScrollBarThumb Normal
+	hi! link BlinkCmpScrollBarGutter Normal
+
+	hi! link BlinkCmpMenuSelection Search
+
+	hi! link BlinkCmpDoc Pmenu
+	hi! link BlinkCmpDocBorder Pmenu
+	hi! link BlinkCmpDocSeparator Pmenu
+	hi! link BlinkCmpDocCursorLine Pmenu
+
+
+	hi! link BlinkCmpKindFunction @function
+	hi! link BlinkCmpKindConstructor @constructor
+	hi! link BlinkCmpKindVariable @module
+	hi! link BlinkCmpKindFolder @module
+	hi! link BlinkCmpKindClass @type
+	hi! link BlinkCmpKindOperator @operator
+	hi! link BlinkCmpKindText @string
+
+	hi! link NormalFloat Pmenu
+
 	hi EndOfBuffer guifg=bg guibg=bg
 	hi LineNr guibg=bg
 	hi foldcolumn guibg=bg
@@ -87,7 +109,6 @@ function _G.RunFile()
     print("Tipo de archivo no soportado: " .. ext)
     return
   end
-
   vim.cmd("botright split | term " .. cmd)
 end
 
@@ -95,7 +116,7 @@ vim.api.nvim_create_user_command("RunFile", RunFile, {})
 
 -- Alternar Copilot
 vim.g.copilot_no_tab_map = true
-vim.g.copilot_enabled = 1 -- empieza habilitado
+vim.g.copilot_enabled = 0 -- empieza deshabilitado
 function _G.CopilotToggle()
   if vim.g.copilot_enabled == 1 then
     vim.cmd("Copilot disable")
@@ -150,35 +171,12 @@ map("n", "<leader>i", ":lua CopilotToggle()<CR>", opts)
 	-- Aceptar sugerencia con Ctrl+i si no hay menú visible
 vim.api.nvim_set_keymap(
   "i",
-  "<C-i>",
-  'pumvisible() ? "\\<C-e>\\<C-i>" : copilot#Accept("\\<CR>")',
+  "<C-l>",
+  'copilot#Accept("<CR>")',
   { expr = true, silent = true }
 )
 
--- coc.nvim (autocompletado)
-vim.api.nvim_set_keymap("i", "<TAB>", 'pumvisible() ? "\\<C-n>" : "\\<TAB>"', { expr = true, silent = true })
-vim.api.nvim_set_keymap("i", "<S-TAB>", 'pumvisible() ? "\\<C-p>" : "\\<S-TAB>"', { expr = true, silent = true })
-vim.api.nvim_set_keymap("n", "K", ":call CocActionAsync('doHover')<CR>", opts)
-vim.api.nvim_set_keymap("i", "<Down>", 'pumvisible() ? "<Nop>" : "\\<Down>"', { expr = true, silent = true })
-vim.api.nvim_set_keymap("i", "<Up>", 'pumvisible() ? "<Nop>" : "\\<Up>"', { expr = true, silent = true })
-vim.api.nvim_set_keymap("i", "<CR>", 'pumvisible() ? coc#_select_confirm() : "\\<CR>"', { expr = true, silent = true })
 
-	-- Diagnósticos rápidos
-vim.api.nvim_set_keymap("n", "[g", "<Plug>(coc-diagnostic-prev)", {})
-vim.api.nvim_set_keymap("n", "]g", "<Plug>(coc-diagnostic-next)", {})
-
-------------------------------------------------------------
--- NERDTree
-------------------------------------------------------------
--- autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "*",
-  callback = function()
-    if vim.fn.winnr("$") == 1 and vim.b.NERDTree and vim.b.NERDTree.isTabTree then
-      vim.cmd("quit")
-    end
-  end,
-})
 ------------------------------------------------------------
 --- Plugins
 ------------------------------------------------------------
@@ -210,7 +208,12 @@ require("lazy").setup({
   { "vim-airline/vim-airline-themes" },
 
   -- Syntax y completado
-  { "neoclide/coc.nvim", branch = "release" },-- menu autocompletado | :CocInstall coc-json coc-tsserver coc-pyright coc-html coc-css coc-sh coc-yaml coc-go coc-rust-analyzer coc-java | aqui se instala soporte para lenguajes, buscar mas o instalar lo necesario
+  { 'nvim-treesitter/nvim-treesitter' },
+  { 'williamboman/mason.nvim', config = true }, --:Mason I para instalar y U para actualizar
+  { 'williamboman/mason-lspconfig.nvim', config = true },
+  { "neovim/nvim-lspconfig" }, 
+
+  { "Saghen/blink.cmp", version = "v1.6.0"},
 
   { "jiangmiao/auto-pairs" },
   { "alvan/vim-closetag" },
@@ -218,4 +221,91 @@ require("lazy").setup({
 
   -- IA
   { "github/copilot.vim" }, -- :Copilot setup
+})
+
+------------------------------------------------------------
+-- Config de plugins
+------------------------------------------------------------
+-- blink.cmp
+require("blink.cmp").setup({
+	cmdline = { enabled = true },
+	completion = { 
+		menu = {
+			draw = { columns = { { "label", gap = 3 }, { "kind_icon" }  } },
+		},
+		list = {
+			selection = { preselect = false },
+		},
+		documentation = { auto_show = true, auto_show_delay_ms = 1000 },
+		ghost_text = { enabled = false },
+		accept = {
+			auto_brackets = { enabled = true },
+		},
+	},
+	sources = {
+		default = { 'lsp', 'buffer', 'snippets', 'path' },
+	},
+	keymap = {
+		-- ['<Tab>'] = { 'select', 'fallback' },
+		["<Tab>"] = { "select_next", "fallback" },     -- Tab = siguiente sugerencia
+		["<S-Tab>"] = { "select_prev", "fallback" },   -- Shift+Tab = anterior
+		["<S-CR>"] = { "accept", "fallback" }, -- Aceptar con enter
+
+		["<Up>"] = { "fallback" }, -- deshabilitar flechas
+		["<Down>"] = { "fallback" },
+	},
+	fuzzy = {
+		implementation = "prefer_rust_with_warning",
+		prebuilt_binaries = { download = true, },
+	},
+})
+
+
+-- NerdTree
+-- autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*",
+  callback = function()
+    if vim.fn.winnr("$") == 1 and vim.b.NERDTree and vim.b.NERDTree.isTabTree then
+      vim.cmd("quit")
+    end
+  end,
+})
+-- LSP (Servidor de lenguajes); Mason (instala los servidores)
+
+require('mason').setup()
+require('mason-lspconfig').setup({
+  ensure_installed = {
+    "pyright",
+    "bashls",
+    "intelephense",
+    "html",
+    "cssls",
+    "clangd",
+    "lua_ls",
+    "jdtls",
+    "omnisharp",
+  },
+  automatic_installation = true,
+})
+
+local lspconfig = require('lspconfig')
+
+-- Mostrar diagnóstico en un popup al mover el cursor sobre la línea
+vim.o.updatetime = 300
+vim.api.nvim_create_autocmd("CursorHold", {
+  callback = function()
+    vim.diagnostic.open_float(nil, { focus = false })
+  end
+})
+
+
+--tree-sitter (Resalta sintaxis)
+require "nvim-treesitter.configs".setup({
+	ensure_installed = { "svelte", "typescript", "javascript", "html", "css", "php", "cpp", "rust", "astro", "zig", "python", "bash", "lua" },
+	highlight = { enable = true },
+	modules = {},
+	sync_install = true,
+	ignore_install = {},
+	auto_install = true,
 })
