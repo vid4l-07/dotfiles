@@ -52,7 +52,7 @@ vim.g.molokai_original = 1
 -- Tema (se cambia desde changetheme)
 vim.cmd("source $HOME/.config/nvim/theme.vim")
 
--- Colores coc.nvim
+-- Colores Blink	:Inspect para ver los highlights de lo seleccionado
 vim.cmd([[ 
 	hi! link @variable Text
 
@@ -148,6 +148,12 @@ map("n", "<C-j>", "3<C-e>", opts)
 -- Enviar cursor al centro
 map("n", "<leader>z", ":call cursor(line('w0') + (winheight(0)/2), col('.'))<CR>", { silent = true })
 
+-- Nueva lina en insertar
+map('i', '<S-CR>', '<Esc>o')
+
+-- Final de linea en insertar
+map('i', '<S-Tab>', '<Esc>A')
+
 -- Mover líneas
 map("n", "<A-j>", ":m .+1<CR>==", { silent = true })
 map("n", "<A-k>", ":m .-2<CR>==", { silent = true })
@@ -161,6 +167,7 @@ map("n", "<C-t>", ":NERDTreeFocus<CR>", opts)
 -- Cambiar buffer
 map("n", "<leader>n", ":bnext<CR>", opts)
 map("n", "<leader>p", ":bprevious<CR>", opts)
+map("n", "<leader>x", ":bdelete<CR>", opts)
 
 -- Ejecutar archivo actual
 map("n", "<leader>r", ":RunFile<CR>", opts)
@@ -234,7 +241,7 @@ require("blink.cmp").setup({
 			draw = { columns = { { "label", gap = 3 }, { "kind_icon" }  } },
 		},
 		list = {
-			selection = { preselect = false },
+			selection = { preselect = true }, -- selecciona el primer elemento auto
 		},
 		documentation = { auto_show = true, auto_show_delay_ms = 1000 },
 		ghost_text = { enabled = false },
@@ -247,12 +254,18 @@ require("blink.cmp").setup({
 	},
 	keymap = {
 		-- ['<Tab>'] = { 'select', 'fallback' },
-		["<Tab>"] = { "select_next", "fallback" },     -- Tab = siguiente sugerencia
-		["<S-Tab>"] = { "select_prev", "fallback" },   -- Shift+Tab = anterior
-		["<S-CR>"] = { "accept", "fallback" }, -- Aceptar con enter
+		--["<Tab>"] = { "select_next", "fallback" },     -- Tab = siguiente sugerencia
+		-- ["<S-Tab>"] = { "select_prev", "fallback" },   -- Shift+Tab = anterior
+		-- ["<S-CR>"] = { "accept", "fallback" }, -- Aceptar con enter
 
-		["<Up>"] = { "fallback" }, -- deshabilitar flechas
-		["<Down>"] = { "fallback" },
+		-- ["<S-CR>"] = { "select_next", "fallback" },     -- Sift+Enter = siguiente sugerencia
+		-- ["<C-CR>"] = { "select_prev", "fallback" },   -- Ctrl+Enter = anterior
+		["<Tab>"] = { "accept", "fallback" }, -- Aceptar con Tab
+
+
+
+		-- ["<Up>"] = { "fallback" }, -- deshabilitar flechas
+		-- ["<Down>"] = { "fallback" },
 	},
 	fuzzy = {
 		implementation = "prefer_rust_with_warning",
